@@ -3,17 +3,19 @@ import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageFree from "./PageFree";
 
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
-const Header =() => {
+const Header = () => {
 
     return (
-        <div>
-            <PageOne/>
-            <PageTwo/>
-            <PageFree/>
-        </div>
-        )
+        <Router>
+            <div>
+                <PageOne/>
+                <PageTwo/>
+                <PageFree/>
+            </div>
+        </Router>
+    )
 }
 
 export default Header;

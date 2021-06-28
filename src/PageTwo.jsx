@@ -1,9 +1,10 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const PageTwo = () => {
     return (
         <div>
-            Страница 2
+            <Link to='/pageTwo'>Страница 2</Link>
         </div>
     )
 }
