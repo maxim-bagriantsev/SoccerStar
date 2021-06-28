@@ -1,3 +1,0 @@
-SoccerStar App
-
-
