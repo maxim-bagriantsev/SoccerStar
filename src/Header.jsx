@@ -3,6 +3,8 @@ import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageFree from "./PageFree";
 
+import {BrowserRouter} from "react-router-dom";
+
 const Header =() => {
 
     return (
