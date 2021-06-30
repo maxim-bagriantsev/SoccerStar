@@ -1,0 +1,15 @@
+.navBar {
+    display: grid;
+
+    grid-template-areas:
+    'a a a';
+
+    border: 2px solid red;
+    padding: 20px;
+}
+
+.header {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
