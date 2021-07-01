@@ -2,13 +2,13 @@ import React from "react";
 import './App.css'
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import PageOne from "../PageOne/PageOne";
-import PageTwo from "../PageTwo/PageTwo";
-import PageFree from "../PageFree/PageFree";
-import Header from "../Header/Header";
+import {PageOne} from '../PageOne'
+import {PageTwo} from "../PageTwo";
+import {PageFree} from "../PageFree";
+import {Header} from '../Header';
 
 
-const App = () => {
+export const App = () => {
     return (
         <Router>
             <div className='main'>
@@ -23,4 +23,4 @@ const App = () => {
     )
 }
 
-export default App;
+

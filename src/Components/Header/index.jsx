@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Header.module.css'
 import {NavLink} from "react-router-dom";
 
-const Header = () => {
+export const Header = () => {
     return (
         <nav className={s.navBar}>
             <div className={s.header}>
@@ -17,4 +17,3 @@ const Header = () => {
         </nav>)
 }
 
-export default Header;

@@ -1,11 +1,10 @@
 import React from "react";
 
-const PageOne = () => {
+export const PageFree = () => {
     return (
         <div>
-            Page One
+            Page Free
         </div>
     )
 }
 
-export default PageOne;
