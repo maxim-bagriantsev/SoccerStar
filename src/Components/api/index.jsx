@@ -3,30 +3,39 @@ import axios from "axios";
 import s from './api.module.css'
 
 export const Api = () => {
-    const count = 1;
     const [competitionsData, setCompetitionsData] = useState(null); //Тут будут данные с сервера
     const [isCompetitionsLoaded, setIsCompetitionsData] = useState(false);// Это состояние для того, чтобы понять загрузились наши данные с сервера или нет
 
-    // eslint-disable-next-line no-unused-expressions
+
     useEffect(() => {
-        axios.get('/competitions/').then((response) => {
-            setCompetitionsData(response.data); // Устанавливаем данные в состояние
+        let axios = require("axios").default;
+        let options = {
+            method: 'GET',
+            url: 'https://api.football-data.org/v2/competitions/EL/matches',
+            headers: {
+                'x-auth-token': 'b0cc176056174cd6bc7bfd20a5a11fd9',
+            }
+        }
+        axios.request(options).then((response) => {
+            setCompetitionsData(response.data);
+            console.log(response.data)
         }).catch((err) => {
             console.log('err');
         }).finally(() => {
             setIsCompetitionsData(true)// говорим, что данные точно загружены (неважно - произошла ошибка или нет)
         })
+
     }, []);
 
     if (!isCompetitionsLoaded) {// если данные не загружены показываем спиннер
         return <p>Loaded...</p>
     }
 
-    return (
+    return /*(
         <table className={s.table}>
             <tr>
-                <th>Имя лиги</th>
-                <th>Год проведения</th>
+                <th>Название лиги</th>
+                <th>Дата начала сезона</th>
                 <th>Место проведения</th>
             </tr>
             {competitionsData.competitions.map((item) => (
@@ -36,9 +45,9 @@ export const Api = () => {
                     <td>{item.area.name}</td>
                 </tr>
             ))
-            })}
+            }
         </table>
-    )
+    )*/
 }
 
 
