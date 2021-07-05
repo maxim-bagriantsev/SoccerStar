@@ -2,17 +2,20 @@ import React from 'react';
 import s from './Header.module.css'
 import {NavLink} from "react-router-dom";
 
-export const Header = () => {
+export const Header = (props) => {
     return (
         <nav className={s.navBar}>
             <div className={s.header}>
-                <NavLink to='/pageone'>Страница 1</NavLink>
+                <NavLink to='/liagueslist'>Список лиг</NavLink>
             </div>
             <div className={s.header}>
-                <NavLink to='/pagetwo'>Страница 2</NavLink>
+                <NavLink to='/teamslist'>Список команд</NavLink>
             </div>
             <div className={s.header}>
-                <NavLink to='/pagefree'>Страница 3</NavLink>
+                <NavLink to='/calendarleague'>Календарь лиги</NavLink>
+            </div>
+            <div className={s.header}>
+                <NavLink to='/calendaroneteam'>Календарь одной команды</NavLink>
             </div>
         </nav>)
 }

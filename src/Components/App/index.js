@@ -2,22 +2,33 @@ import React from "react";
 import './App.css'
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import {PageOne} from '../PageOne'
-import {PageTwo} from "../PageTwo";
-import {PageFree} from "../PageFree";
+import {LiaguesList} from '../LiaguesList'
+import {TeamsList} from "../TeamsList";
+import {CalendarLeague} from "../CalendarLeague";
 import {Header} from '../Header';
+import {CalendarOneTeam} from "../CalendarOneTeam";
 
+import 'antd/dist/antd.css';
+import './App.css';
+import {Layout} from 'antd';
+import {Content} from "antd/es/layout/layout";
 
-export const App = () => {
+export const App = (props) => {
     return (
         <Router>
             <div className='main'>
-                <Header/>
-                <div className='content'>
-                    <Route path='/pageone' component={PageOne}/>
-                    <Route path='/pagetwo' component={PageTwo}/>
-                    <Route path='/pagefree' component={PageFree}/>
-                </div>
+                <Layout>
+                    <Header/>
+                    <Content>
+                        <div className='content'>
+                            <Route path='/liagueslist' component={LiaguesList}/>
+                            <Route path='/teamslist' component={TeamsList}/>
+                            <Route path='/calendarleague' component={CalendarLeague}/>
+                            <Route path='/calendaroneteam' component={CalendarOneTeam}/>
+                        </div>
+                    </Content>
+                    {/*<Footer>Footer</Footer>*/}
+                </Layout>
             </div>
         </Router>
     )

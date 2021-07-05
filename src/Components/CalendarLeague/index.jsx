@@ -1,9 +1,9 @@
 import React from "react";
 
-export const PageOne = () => {
+export const CalendarLeague = () => {
     return (
         <div>
-            Page One
+           Календарь лиги
         </div>
     )
 }

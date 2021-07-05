@@ -1,10 +1,11 @@
 import React from "react";
 
-export const PageFree = () => {
+export const TeamsList = (props) => {
     return (
         <div>
-            Page Free
+            Список команд
         </div>
     )
 }
+
 
