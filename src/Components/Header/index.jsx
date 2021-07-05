@@ -6,7 +6,7 @@ export const Header = (props) => {
     return (
         <nav className={s.navBar}>
             <div className={s.header}>
-                <NavLink to='/liagueslist'>Список лиг</NavLink>
+                <NavLink to='/competitions'>Список соревнованй</NavLink>
             </div>
             <div className={s.header}>
                 <NavLink to='/teamslist'>Список команд</NavLink>

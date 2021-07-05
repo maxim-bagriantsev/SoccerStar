@@ -2,7 +2,6 @@ import React from "react";
 import './App.css'
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import {LiaguesList} from '../LiaguesList'
 import {TeamsList} from "../TeamsList";
 import {CalendarLeague} from "../CalendarLeague";
 import {Header} from '../Header';
@@ -12,6 +11,7 @@ import 'antd/dist/antd.css';
 import './App.css';
 import {Layout} from 'antd';
 import {Content} from "antd/es/layout/layout";
+import {CompetitionsList} from "../CompetitionsList";
 
 export const App = (props) => {
     return (
@@ -21,7 +21,7 @@ export const App = (props) => {
                     <Header/>
                     <Content>
                         <div className='content'>
-                            <Route path='/liagueslist' component={LiaguesList}/>
+                            <Route path='/competitions' component={CompetitionsList}/>
                             <Route path='/teamslist' component={TeamsList}/>
                             <Route path='/calendarleague' component={CalendarLeague}/>
                             <Route path='/calendaroneteam' component={CalendarOneTeam}/>
