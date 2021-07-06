@@ -1,5 +1,5 @@
 {
-  "name": "soccerstar",
+  "name": "css-modules",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,15 +7,9 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "antd": "^4.16.6",
-    "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-highlight-words": "^0.17.0",
-    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-spinners": "^0.11.0",
-    "react-token-auth": "^1.1.8",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -42,6 +36,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.football-data.org/v2",
-  "accessToken": "b0cc176056174cd6bc7bfd20a5a11fd9"
+  "devDependencies": {
+    "react-highlight-words": "^0.17.0"
+  }
 }
