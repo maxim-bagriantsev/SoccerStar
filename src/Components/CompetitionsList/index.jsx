@@ -1,93 +1,49 @@
 import React, {useEffect, useState} from 'react';
+import {Table, Input, Divider, Button, Space, Spin} from "antd";
+import {culumns} from './common/tableColumns';
+import {getCompetitions} from "../../api";
 
 import 'antd/dist/antd.css';
-import '../CompetitionsList/index.css';
-import {Table, Input, Button, Space } from "antd";
-import Highlighter from 'react-highlight-words';
-import { SearchOutlined } from '@ant-design/icons';
+import {getDataSource} from "./common/getDataSource";
 
-import {getCompetitionsList} from "../../api/competitions";
 
+const {Search} = Input;
 
 export const CompetitionsList = () => {
     const [competitionsData, setCompetitionsData] = useState(null); //Тут будут данные с сервера
     const [isCompetitionsLoaded, setIsCompetitionsLoaded] = useState(false);// Это состояние для того, чтобы понять загрузились наши данные с сервера или нет
 
-
     useEffect(() => {
-        getCompetitionsList().then((data) => {
-            setCompetitionsData(data)
-        })
-            .catch((err) => {
-                console.log('err');
-            }).finally(() => {
-            setIsCompetitionsLoaded(true)// говорим, что данные точно загружены (неважно - произошла ошибка или нет)
-        })
+        getCompetitions().then((data) => {
+            // кладем в стейт - сразу в виде  dataSource
+            setCompetitionsData(getDataSource(data.competitions))
+            setIsCompetitionsLoaded(true) // говорим, что данные загружены
+        }).catch((err) => {
+            console.log(err);
+        });
+
     }, []);
 
-    if (!isCompetitionsLoaded) {// если данные не загружены показываем спиннер
-        return <p>Loaded...</p>
+
+    if (!isCompetitionsLoaded) { // если данные не загружены показываем спиннер
+        return <Spin/>
     }
 
-    const culumns = [ // Название колонок в таблице
-        {
-            title: "Название соревнования",
-            dataIndex: "nameCompetition",
-            key: "nameCompetition",
-            render: (text) => <a>{text}</a>
-        },
-        {
-            title: "Местро проведения",
-            dataIndex: "area",
-            key: "area",
-            render: (text) => <a>{text}</a>
-        },
-        {
-            title: "Код страны",
-            dataIndex: "countryCode",
-            key: "countryCode",
-            render: (text) => <a>{text}</a>
-        },
-        {
-            title: "Дата начала соревнований",
-            dataIndex: "startDate",
-            key: "startDate",
-            render: (text) => <a>{text}</a>
-        },
-        {
-            title: "Дата окончания соревнований",
-            dataIndex: "andDate",
-            key: "andDate",
-            render: (text) => <a>{text}</a>
-        },
-        {
-            title: "Код лиги",
-            dataIndex: "leagueCod",
-            key: "leagueCod",
-            render: (text) => <a>{text}</a>
-        },
-        {
-            title: "Фдаг страны",
-            dataIndex: "countryFlag",
-            key: "countryFlag",
-            render: (text) => <a>{text}</a>
-        },
-
-    ];
+    // клик по кнопке поиска по имени
+    const handleSearch = (searchVal)=>{
+        // заглушка
+        alert(searchVal);
+    }
 
     return (
-        <Table columns={culumns} dataSource={competitionsData.competitions.map((item) => {
-            return {
-                key: item.id,
-                nameCompetition: item.name,
-                area: item.area.name,
-                countryCode: item.area.countryCode,
-                leagueCod: item.code,
-                countryFlag: '#',
-                startDate: "#startDate",
-                andDate: "#andDate",
-            }
-        })}/>
+        <>
+            <Space>
+                <Search placeholder="Поиск по имени" enterButton onSearch={handleSearch}
+                        style={{width: "300px"}}/>
+            </Space>
+            <Divider/>
+            <Table bordered columns={culumns} dataSource={competitionsData}/>
+        </>
     )
 }
 

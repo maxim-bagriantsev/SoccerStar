@@ -42,6 +42,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.football-data.org/v2",
-  "accessToken": "b0cc176056174cd6bc7bfd20a5a11fd9"
+  "proxy": "https://api.football-data.org/v2"
 }
