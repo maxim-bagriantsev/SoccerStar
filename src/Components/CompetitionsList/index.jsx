@@ -64,7 +64,7 @@ export const CompetitionsList = () => {
                 />
             </Space>
             <Divider/>
-            <Table bordered columns={culumns} dataSource={dataSourceForComp}/> // Говорит какие данные вывести поиск по соревнованию или поиск по локации
+            <Table bordered columns={culumns} dataSource={dataSourceForComp}/>
         </>
     )
 }

@@ -13,8 +13,9 @@ import 'antd/dist/antd.css';
 import './App.css'
 import {HomePage} from "../HomePage";
 import {HomeOutlined} from "@ant-design/icons";
+import Text from "antd/es/typography/Text";
 
-const {Header, Content} = Layout;
+const {Header, Content, Footer} = Layout;
 
 export const App = (props) => {
     return (
@@ -23,7 +24,8 @@ export const App = (props) => {
                 <Layout>
                     <Header style={{backgroundColor: '#001529'}}>
                         <Menu theme="dark" mode="horizontal">
-                            <Menu.Item><NavLink style={{color: 'white'}} to='/'><HomeOutlined style={{fontSize: '35px'}}/></NavLink></Menu.Item>
+                            <Menu.Item><NavLink style={{color: 'white'}} to='/'><HomeOutlined
+                                style={{fontSize: '35px'}}/></NavLink></Menu.Item>
                             <Menu.Item><NavLink style={{color: 'white'}} to='/competitions'>Список соревнованй</NavLink></Menu.Item>
                             <Menu.Item><NavLink style={{color: 'white'}} to='/teamslist'>Список
                                 команд</NavLink></Menu.Item>
@@ -43,7 +45,13 @@ export const App = (props) => {
                             <Route path='/calendaroneteam' component={CalendarOneTeam}/>
                         </div>
                     </Content>
-                    {/*<Footer>Footer</Footer>*/}
+                    <Footer>
+                        <p style={{textAlign: "center", color: "black", fontWeight: 500}}>
+                            <Text style={{fontWeight: 700}}> Questions? </Text>
+                            Drop me a line to <a style={{color: "blue"}}>maxim163rus@gmail.com</a> ,
+                            Copyright © 2021
+                        </p>
+                    </Footer>
                 </Layout>
             </div>
         </Router>
