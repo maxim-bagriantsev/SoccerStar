@@ -9,5 +9,4 @@ export const getDataSource = (competitions) => {
             endDate: new Date(item.currentSeason?.endDate).toLocaleDateString(),
         }
     })
-
 }

@@ -3,13 +3,13 @@ export const culumns = [ // Название колонок в таблице
         title: "Название соревнования",
         dataIndex: "nameCompetition",
         key: "nameCompetition",
-        render: (text) => <a>{text}</a>
+        render: (text, item) => <a>{text}</a>
     },
     {
-        title: "Местро проведения",
+        title: "Место проведения",
         dataIndex: "area",
         key: "area",
-        render: (text) => <a>{text}</a>
+        render: (text, item) => <a>{text}</a>
     },
     {
         title: "Код страны",

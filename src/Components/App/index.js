@@ -11,7 +11,7 @@ import {NavLink} from "react-router-dom";
 
 import 'antd/dist/antd.css';
 import './App.css'
-import {HomePage} from "../HomePage/HomePage";
+import {HomePage} from "../HomePage";
 import {HomeOutlined} from "@ant-design/icons";
 
 const {Header, Content} = Layout;
