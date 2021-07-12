@@ -17,6 +17,10 @@
     text-align: center;
 }
 
+.homePage_heading_heading {
+    text-align: center;
+}
+
 .descriptionSPA {
     grid-area: descriptionSPA;
 

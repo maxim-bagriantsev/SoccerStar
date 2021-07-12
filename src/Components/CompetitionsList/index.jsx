@@ -4,7 +4,8 @@ import {culumns} from './common/tableColumns';
 import {getCompetitions} from "../../api";
 
 import 'antd/dist/antd.css';
-import {getDataSource} from "./common/getDataSource";
+
+import {getDataSourceCompetitions} from '../CompetitionsList/common/getDataSourceCompetitions';
 
 
 const {Search} = Input;
@@ -17,29 +18,23 @@ export const CompetitionsList = () => {
     const [filterSource, setFilterSource] = useState([])//Состояние для поиска сореванований
     const [filterArea, setFilterArea] = useState([])//Состояние для поиска места проведения соревнований
 
-
     useEffect(() => {
         getCompetitions().then((data) => {
             // кладем в стейт - сразу в виде  dataSource
-            setCompetitionsData(getDataSource(data.competitions))
+            setCompetitionsData(getDataSourceCompetitions(data.competitions))
             setIsCompetitionsLoaded(true) // говорим, что данные загружены
         }).catch((err) => {
             console.log(err);
         });
-
     }, []);
-
 
     if (!isCompetitionsLoaded) { // если данные не загружены показываем спиннер
         return <Spin/>
     }
 
-    const dataSourceForComp = competitionsData.filter((item) => {
-        return item.nameCompetition.toLowerCase().startsWith(filterSource)
-    })
-
-    const dataSourceForArea = competitionsData.filter((item) => {
-        return item.area.toLowerCase().startsWith(filterArea)
+    // Поиск по соревнованиям или по локации
+    const searchDataSource = competitionsData.filter((item) => {
+        return item.nameCompetition.toLowerCase().startsWith(filterSource) && item.area.toLowerCase().startsWith(filterArea)
     })
 
     const handleSearchCompetition = (value) => {
@@ -47,15 +42,14 @@ export const CompetitionsList = () => {
     }
 
     const handleSearchArea = (value) => {
-        setFilterArea(value)
-
+        setFilterArea(value);
     }
 
     return (
         <>
             <Space>
                 <Search
-                    placeholder="Поиск соревнования" enterButton onSearch={handleSearchCompetition}
+                    placeholder="Поиск турниров" enterButton onSearch={handleSearchCompetition}
                     style={{width: "300px"}}
                 />
                 <Search
@@ -64,7 +58,7 @@ export const CompetitionsList = () => {
                 />
             </Space>
             <Divider/>
-            <Table bordered columns={culumns} dataSource={dataSourceForComp}/>
+            <Table bordered columns={culumns} dataSource={searchDataSource}/>
         </>
     )
 }

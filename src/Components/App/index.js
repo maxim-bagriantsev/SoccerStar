@@ -26,7 +26,7 @@ export const App = (props) => {
                         <Menu theme="dark" mode="horizontal">
                             <Menu.Item><NavLink style={{color: 'white'}} to='/'><HomeOutlined
                                 style={{fontSize: '35px'}}/></NavLink></Menu.Item>
-                            <Menu.Item><NavLink style={{color: 'white'}} to='/competitions'>Список соревнованй</NavLink></Menu.Item>
+                            <Menu.Item><NavLink style={{color: 'white'}} to='/competitions'>Список турниров</NavLink></Menu.Item>
                             <Menu.Item><NavLink style={{color: 'white'}} to='/teamslist'>Список
                                 команд</NavLink></Menu.Item>
                             <Menu.Item><NavLink style={{color: 'white'}} to='/calendarleague'>Календарь

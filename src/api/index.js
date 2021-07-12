@@ -17,6 +17,12 @@ export const getCompetitions = () => {
     })
 }
 
+export const getTeams = () => {
+    return axiosInstance.get(urls.teams).then(response => {
+        return response.data;
+    })
+}
+
 
 
 
