@@ -15,7 +15,7 @@ export const HomePage = () => {
                         Здравствуйте!
                         Меня зовут <span>Багрянцев Максим</span>  и это первый мой проект.
                         Данный проект является входным тестовым заданием на курс Frontend-практикум online oт IT-компании <span>SimbirSoft</span>.
-                        <p>Согласно техническому заданию <a href='https://disk.yandex.ru/i/TjtkwVKNd34xAQ' target='technical'> (Cсылка на ТЗ)</a> </p>
+                        <p>Согласно техническому заданию <a href='https://disk.yandex.ru/i/TjtkwVKNd34xAQ' target='technical'> (Cсылка на ТЗ):</a> </p>
                         <li>Сайт - приложение (SPA) предоставляет сервис статистики ведущих европейских турниров по
                             футболу.
                         </li>

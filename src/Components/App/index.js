@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import {TeamsList} from "../TeamsList";
 import {Matches} from "../Matches";
-import {CalendarOneTeam} from "../CalendarOneTeam";
 import {CompetitionsList} from "../CompetitionsList";
 import {NavLink} from "react-router-dom";
 
@@ -22,6 +21,7 @@ export const App = (props) => {
         <Router>
             <div className='main'>
                 <Layout>
+                    
                     <Header style={{backgroundColor: '#001529'}}>
                         <Menu theme="dark" mode="horizontal">
                             <Menu.Item key={1}><NavLink style={{color: 'white'}} to='/'><HomeOutlined
@@ -44,6 +44,7 @@ export const App = (props) => {
                             <Route exact path='/teamslist/:teamId/matches' component={TeamMatches}/>
                         </div>
                     </Content>
+
                     <Footer>
                         <p style={{textAlign: "center", color: "black", fontWeight: 500}}>
                             <Text style={{fontWeight: 700}}> Questions? </Text>
@@ -51,6 +52,7 @@ export const App = (props) => {
                             Copyright © 2021
                         </p>
                     </Footer>
+
                 </Layout>
             </div>
         </Router>
