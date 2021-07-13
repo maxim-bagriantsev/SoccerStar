@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Table, Input, Divider, Button, Space, Spin} from "antd";
-import {culumns} from './common/tableColumns';
 import {getCompetitions} from "../../api";
-
+import {getDataSource} from "./common/getDataSource";
+import {culumns} from './common/tableColumns';
 import 'antd/dist/antd.css';
-
-import {getDataSourceCompetitions} from '../CompetitionsList/common/getDataSourceCompetitions';
-
 
 const {Search} = Input;
 
@@ -21,7 +18,7 @@ export const CompetitionsList = () => {
     useEffect(() => {
         getCompetitions().then((data) => {
             // кладем в стейт - сразу в виде  dataSource
-            setCompetitionsData(getDataSourceCompetitions(data.competitions))
+            setCompetitionsData(getDataSource(data.competitions))
             setIsCompetitionsLoaded(true) // говорим, что данные загружены
         }).catch((err) => {
             console.log(err);

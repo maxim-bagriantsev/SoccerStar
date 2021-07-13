@@ -3,17 +3,17 @@ import {Layout, Menu} from 'antd';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import {TeamsList} from "../TeamsList";
-import {CalendarLeague} from "../CalendarLeague";
+import {Matches} from "../Matches";
 import {CalendarOneTeam} from "../CalendarOneTeam";
 import {CompetitionsList} from "../CompetitionsList";
 import {NavLink} from "react-router-dom";
-
 
 import 'antd/dist/antd.css';
 import './App.css'
 import {HomePage} from "../HomePage";
 import {HomeOutlined} from "@ant-design/icons";
 import Text from "antd/es/typography/Text";
+import {TeamMatches} from "../TeamMatches";
 
 const {Header, Content, Footer} = Layout;
 
@@ -24,25 +24,24 @@ export const App = (props) => {
                 <Layout>
                     <Header style={{backgroundColor: '#001529'}}>
                         <Menu theme="dark" mode="horizontal">
-                            <Menu.Item><NavLink style={{color: 'white'}} to='/'><HomeOutlined
+                            <Menu.Item key={1}><NavLink style={{color: 'white'}} to='/'><HomeOutlined
                                 style={{fontSize: '35px'}}/></NavLink></Menu.Item>
-                            <Menu.Item><NavLink style={{color: 'white'}} to='/competitions'>Список турниров</NavLink></Menu.Item>
-                            <Menu.Item><NavLink style={{color: 'white'}} to='/teamslist'>Список
-                                команд</NavLink></Menu.Item>
-                            <Menu.Item><NavLink style={{color: 'white'}} to='/calendarleague'>Календарь
-                                лиги</NavLink></Menu.Item>
-                            <Menu.Item><NavLink style={{color: 'white'}} to='/calendaroneteam'>Календарь одной
-                                команды</NavLink></Menu.Item>
+                            <Menu.Item key={2}><NavLink style={{color: 'white'}}
+                                                        to='/competitions'>Чемпионаты</NavLink></Menu.Item>
+                            <Menu.Item key={3}><NavLink style={{color: 'white'}} to='/teamslist'>Команды
+                            </NavLink></Menu.Item>
+                            <Menu.Item key={4}><NavLink style={{color: 'white'}} to='/matches'>Матчи
+                            </NavLink></Menu.Item>
                         </Menu>
                     </Header>
 
                     <Content style={{margin: '10px 50px'}}>
                         <div className='content'>
                             <Route exact path='/' component={HomePage}/>
-                            <Route path='/competitions' component={CompetitionsList}/>
-                            <Route path='/teamslist' component={TeamsList}/>
-                            <Route path='/calendarleague' component={CalendarLeague}/>
-                            <Route path='/calendaroneteam' component={CalendarOneTeam}/>
+                            <Route exact path='/competitions' component={CompetitionsList}/>
+                            <Route exact path='/teamslist' component={TeamsList}/>
+                            <Route exact path='/matches' component={Matches}/>
+                            <Route exact path='/teamslist/:teamId/matches' component={TeamMatches}/>
                         </div>
                     </Content>
                     <Footer>

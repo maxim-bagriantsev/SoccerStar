@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {getTeams} from "../../api";
 import {Table, Input, Divider, Button, Space, Spin} from "antd";
-import {getDataSourceTeams} from "./common/getDataSourceTeams";
+import {getDataSource} from "./common/getDataSource";
 import {culumns} from '../TeamsList/common/tableColumns';
 import 'antd/dist/antd.css';
 
 const {Search} = Input;
 
-export const TeamsList = (props) => {
+export const TeamsList = () => {
     const [teamsData, setTeamsData] = useState('null') // Данные с сервера по командам
     const [isTeamsLoaded, setTeamsLoaded] = useState(false) // Это состояние для того, чтобы понять загрузились наши данные с сервера или нет
 
@@ -17,7 +17,7 @@ export const TeamsList = (props) => {
     useEffect(() => {
         getTeams().then((data) => {
             // кладем в стейт - сразу в виде  dataSource
-            setTeamsData(getDataSourceTeams(data.teams))
+            setTeamsData(getDataSource(data.teams))
             setTeamsLoaded(true) // говорим, что данные загружены
         }).catch((err) => {
             console.log('err')
@@ -30,7 +30,7 @@ export const TeamsList = (props) => {
 
     // Поиск по командам или по стране
     const searchDataSource = teamsData.filter((item) => {
-        return item.nameTeams.toLowerCase().startsWith(filterTeams)
+        return item.name.toLowerCase().startsWith(filterTeams)
     });
 
 
