@@ -1,7 +1,7 @@
 export const getDataSource = (competitions) => {
     return competitions.map(item => {
         return {
-            key: item.id,
+            id: item.id,
             nameCompetition: item.name,
             area: item.area.name,
             countryCode: item.area.countryCode,

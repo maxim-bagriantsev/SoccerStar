@@ -28,7 +28,7 @@ export const App = (props) => {
                                 style={{fontSize: '35px'}}/></NavLink></Menu.Item>
                             <Menu.Item key={2}><NavLink style={{color: 'white'}}
                                                         to='/competitions'>Чемпионаты</NavLink></Menu.Item>
-                            <Menu.Item key={3}><NavLink style={{color: 'white'}} to='/teamslist'>Команды
+                            <Menu.Item key={3}><NavLink style={{color: 'white'}} to='/teams'>Команды
                             </NavLink></Menu.Item>
                             <Menu.Item key={4}><NavLink style={{color: 'white'}} to='/matches'>Матчи
                             </NavLink></Menu.Item>
@@ -39,9 +39,9 @@ export const App = (props) => {
                         <div className='content'>
                             <Route exact path='/' component={HomePage}/>
                             <Route exact path='/competitions' component={CompetitionsList}/>
-                            <Route exact path='/teamslist' component={TeamsList}/>
+                            <Route exact path='/teams' component={TeamsList}/>
                             <Route exact path='/matches' component={Matches}/>
-                            <Route exact path='/teamslist/:teamId/matches' component={TeamMatches}/>
+                            <Route exact path='/teams/:teamId/matches' component={TeamMatches}/>
                         </div>
                     </Content>
 

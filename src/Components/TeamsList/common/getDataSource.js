@@ -1,7 +1,7 @@
-export const getDataSource = (teams) => {
-    return teams.map(item => {
+export const getDataSource = (items) => {
+    return items.map(item => {
         return {
-            key: item.id,
+            id: item.id,
             crestUrl: item.crestUrl,
             name: item.name,
             area: item.area.name,

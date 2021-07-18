@@ -50,7 +50,7 @@ export const CompetitionsList = () => {
                     style={{width: "300px"}}
                 />
                 <Search
-                    placeholder="Поиск по месту проведения соревнования" enterButton onSearch={handleSearchArea}
+                    placeholder="Поиск по месту проведения турнира" enterButton onSearch={handleSearchArea}
                     style={{width: "300px"}}
                 />
             </Space>

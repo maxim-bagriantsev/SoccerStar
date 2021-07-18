@@ -28,8 +28,6 @@ export const culumns = [ // Название колонок в таблице
         key: "area",
         render: (text, item) => <div style={{ textAlign: 'center' }}><img style={{ maxWidth: '100px' }} src={item.ensignUrl} alt='country flag' /><p >{text}</p></div>
     },
-
-
     {
         title: "Домашняя команда",
         dataIndex: "homeTeam",

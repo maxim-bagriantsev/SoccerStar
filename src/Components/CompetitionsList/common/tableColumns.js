@@ -1,6 +1,6 @@
 export const culumns = [ // Название колонок в таблице
     {
-        title: "Название соревнования",
+        title: "Название турнира",
         dataIndex: "nameCompetition",
         key: "nameCompetition",
         render: (text, item) => <a>{text}</a>

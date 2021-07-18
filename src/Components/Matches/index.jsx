@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {getDataSource} from './common/getDataSource';
 import {getMatches} from '../../api/index';
 import {useQuery} from "../../hooks/useQuery";
@@ -20,7 +20,7 @@ export const Matches = () => {
     const dateTo = useQuery().get('dateTo') ?? '2021-05-09';
 
     useEffect(() => {
-        getMatches({ dateFrom, dateTo }).then(data => {
+        getMatches({dateFrom, dateTo}).then(data => {
             setMatches(getDataSource(data.matches));
             setIsLoaded(true);
         }).catch(err => {
@@ -49,16 +49,18 @@ export const Matches = () => {
         return <Spin/>
     }
 
-    const { RangePicker } = DatePicker;
+    const {RangePicker} = DatePicker;
     return (
         <>
             <>
                 <Space direction="vertical" size={12}>
-                    <RangePicker defaultValue={[moment(dateFrom), moment(dateTo)]} onChange={onDataChange} />
+                    <RangePicker defaultValue={[moment(dateFrom), moment(dateTo)]} onChange={onDataChange}/>
                 </Space>
-                {isDateError && <p style={{ color: 'red' }}>Разница между началом периода и концом периода не должно превышать 10 дней</p>}
-                <Divider />
-                <Table bordered columns={culumns} dataSource={matches} />
+                {isDateError &&
+                <p style={{color: 'red'}}>Разница между началом периода и концом периода не должно превышать 10
+                    дней</p>}
+                <Divider/>
+                <Table bordered columns={culumns} dataSource={matches}/>
             </>
         </>
     )

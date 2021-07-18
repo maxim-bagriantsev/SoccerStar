@@ -16,11 +16,8 @@ export const TeamsList = () => {
 
     useEffect(() => {
         getTeams().then((data) => {
-            // кладем в стейт - сразу в виде  dataSource
             setTeamsData(getDataSource(data.teams))
-            setTeamsLoaded(true) // говорим, что данные загружены
-        }).catch((err) => {
-            console.log('err')
+            setTeamsLoaded(true)
         });
     }, [])
 
@@ -32,7 +29,6 @@ export const TeamsList = () => {
     const searchDataSource = teamsData.filter((item) => {
         return item.name.toLowerCase().startsWith(filterTeams)
     });
-
 
     const handleSearchTeams = (value) => {
         setFilterTeams(value);

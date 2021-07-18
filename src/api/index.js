@@ -17,6 +17,7 @@ export const getCompetitions = () => {
         })
 };
 
+// список команд
 export const getTeams = () => {
     return axiosInstance.get(urls.teams())
         .then(response => {
@@ -25,15 +26,15 @@ export const getTeams = () => {
 };
 
 // список матчей для конкретной команды
-export const getTeamMatches = ({ teamId, dateFrom, dateTo }) => {
-    return axiosInstance.get(urls.teamsMatches({ teamId, dateFrom, dateTo }))
+export const getTeamMatches = ({teamId, dateFrom, dateTo}) => {
+    return axiosInstance.get(urls.teamsMatches({teamId, dateFrom, dateTo}))
         .then(response => {
             return response.data;
-        });
+        })
 }
 
 // список матчей для чемпионата
-export const getMatches = ({dateFrom, dateTo})=>{
+export const getMatches = ({dateFrom, dateTo}) => {
     return axiosInstance.get(urls.matches({dateFrom, dateTo}))
         .then(response => {
             return response.data;
