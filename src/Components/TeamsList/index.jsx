@@ -7,12 +7,12 @@ import 'antd/dist/antd.css';
 
 const {Search} = Input;
 
-export const TeamsList = () => {
-    const [teamsData, setTeamsData] = useState('null') // Данные с сервера по командам
+export const TeamsList = (props) => {
+    const [teamsData, setTeamsData] = useState(null) // Данные с сервера по командам
     const [isTeamsLoaded, setTeamsLoaded] = useState(false) // Это состояние для того, чтобы понять загрузились наши данные с сервера или нет
 
     // Тут будут данные по поиску
-    const [filterTeams, setFilterTeams] = useState([])//Состояние для поиска команд
+    const [filterTeams, setFilterTeams] = useState('')//Состояние для поиска команд
 
     useEffect(() => {
         getTeams().then((data) => {
@@ -27,7 +27,7 @@ export const TeamsList = () => {
 
     // Поиск по командам или по стране
     const searchDataSource = teamsData.filter((item) => {
-        return item.name.toLowerCase().startsWith(filterTeams)
+        return item.name.toLowerCase().startsWith(filterTeams.toLowerCase())
     });
 
     const handleSearchTeams = (value) => {

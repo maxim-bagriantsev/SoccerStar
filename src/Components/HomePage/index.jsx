@@ -12,11 +12,7 @@ export const HomePage = () => {
                 </h2>
                 <div>
                     <p className='descriptionSPA'>
-                        <p> Описание сайта </p>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        Сайт для просмотра футбольной статистики
                     </p>
                 </div>
             </div>

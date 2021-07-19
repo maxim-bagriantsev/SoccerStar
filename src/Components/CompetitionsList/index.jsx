@@ -12,8 +12,8 @@ export const CompetitionsList = () => {
     const [isCompetitionsLoaded, setIsCompetitionsLoaded] = useState(false);// Это состояние для того, чтобы понять загрузились наши данные с сервера или нет
 
     // Тут будут данные по поиску
-    const [filterSource, setFilterSource] = useState([])//Состояние для поиска сореванований
-    const [filterArea, setFilterArea] = useState([])//Состояние для поиска места проведения соревнований
+    const [filterSource, setFilterSource] = useState('')//Состояние для поиска сореванований
+    const [filterArea, setFilterArea] = useState('')//Состояние для поиска места проведения соревнований
 
     useEffect(() => {
         getCompetitions().then((data) => {
@@ -31,7 +31,7 @@ export const CompetitionsList = () => {
 
     // Поиск по соревнованиям или по локации
     const searchDataSource = competitionsData.filter((item) => {
-        return item.nameCompetition.toLowerCase().startsWith(filterSource) && item.area.toLowerCase().startsWith(filterArea)
+        return item.nameCompetition.toLowerCase().startsWith(filterSource) && item.area.toLowerCase().startsWith(filterArea.toLowerCase())
     })
 
     const handleSearchCompetition = (value) => {
